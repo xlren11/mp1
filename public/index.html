@@ -2,32 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MP1 Starter</title>
+  <title>Mad for noodles</title>
   <link rel="stylesheet" href="css/styles.css">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="shortcut icon" href="media/icon.png" type="image/png"/>
   <script src="lib/jquery-2.1.3.min/index.js"></script>
   <script src="js/script.js"></script>
   <script src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
   <header class="header">
-    <p>Header</p>
-  </header>
-  <nav class="navbar">
-    <div class="container" style="height:100%;width:100%">
-      <div style="float:left;width:20%">fsdfdsfds</div>
+    <nav id="nvb" class="navbar">
+      <div id="title"><p>Mad for Noodles</p></div>
       <div class="icons">
-        <a id="icon1" href="#icon1" class="top-icon">pos1</a>
-        <a id="icon2" href="#icon2" class="top-icon">pos2</a>
+        <a id="icon1" href="#icon1" class="top-icon">Introduction</a>
+        <a id="icon2" href="#icon2" class="top-icon">Gallery</a>
+        <a id="icon3" href="#icon3" class="top-icon">Top Noodles</a>
+        <!--<a id="icon4" href="#icon4" class="top-icon">pos4</a>-->
+      </div>
+    </nav>
+  </header>
+  <div class="content">
+    <div id="video-block">
+      <video class="video" width="70%" autoplay loop>
+        <source src="media/lamian.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div style="background-color:papayawhip;height: 100px"></div>
+    <div id="icon1-scroll">
+      <!--<div id="h-intro"><h1>Type of noodles</h1></div>-->
+      <div id="intro-block">
+        <div id="intro-level1">
+          <div></div>
+          <div id="intro-1"><img id="img1" src="media/intro1.png"/></div>
+          <div id="intro-2"><img id="img2" src="media/intro2.png"/></div>
+          <div></div>
+        </div>
+        <div id="intro-level2">
+          <div id="intro-3" style="left:0"><img id="img3" src="media/intro3.png"/></div>
+          <div style="width:40%"><h1>Type of noodles</h1></div>
+          <div id="intro-4" style="right:0"><img id="img4" src="media/intro4.png"/></div>
+        </div>
+        <div id="intro-level3">
+          <div></div>
+          <div id="intro-5"><img id="img5" src="media/intro5.png"/></div>
+          <div id="intro-6"><img id="img6" src="media/intro6.png"/></div>
+          <div></div>
+        </div>
+        <div id="mod" class="modal">
+          <div id="mod-content">
+            <div id="close">x</div>
+            <img id="mod-img"/>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
-
-  <div id="icon1-scroll" class="row" style="top:120px">icon1</div>
-  <div id="icon2-scroll" class="row">icon2</div>
-
-  <footer>
-    <p>fsdfsd</p>
-  </footer>
+    <div style="background-color:papayawhip;height: 80px"></div>
+    <div id="icon2-scroll" style="width:100%">
+      <div id="carousel">
+        <div id="slides">
+          <a id="prev"><img id="prevB" src="media/prev.png" height="80" width="80"></a>
+          <a id="next"><img id="nextB" src="media/next.png" height="80" width="80"></a>
+          <ul>
+            <li><img src="media/huimian2.jpg"/></li>
+            <li><img src="media/lamian3.jpg"/></li>
+            <li><img src="media/ramen.jpg"/></li>
+            <li><img src="media/dandanmian.jpg"/></li>
+            <li><img src="media/lamian2.jpg"/></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="background-color:papayawhip;height: 100px"></div>
+    <div id="icon3-scroll">
+      <h1>My Top3 Favorite Noodles</h1>
+      <div>
+        <div>
+          <div class="subTitle">Pulled Noodle</div>
+          <div class="context">The best pulled noodle is in Lanzhou China. The chefs pulled out the noodel from the dough using their hands. Thus pulling the noodle itself is kind of showmanship. Skilled cook can pull noodle into various shapes to provide different texture. Compare with machine made noodle, pulled noodle is elastic. The topping is usually beef slice and parsley</div>
+        </div>
+        <div>
+          <div class="subTitle">Ramen</div>
+          <div class="context">Ramen is widely known as famous Japanese representative noodle, it's originated from China and Japanese chefs made changes to it. Ramen noodels are normally machine made. The soup is the soul of Ramen, Ramens are usually categorized by the ingredient from the soup. Also topping is another highlight of Ramen, popular toppings are half cooked eggs and sea weed</div>
+        </div>
+        <div>
+          <div class="subTitle">Sliced noodle</div>
+          <div class="context">Sliced noodle is sliced directed from the dough by skilled chef using steel blades, it is another showmanship next to pulled noodles. Compare with conventional noodle, it's ticker but the texture is very smooth. Topping of sliced noodle various, beef and lam are common choices.</div>
+        </div>
+      </div>
+    </div>
+    <div style="background-color:papayawhip;height: 100px"></div>
+  </div>
 </body>
+<footer>
+  <div>
+    <div id="pseudo1"></div>
+    <i class="fa fa-facebook-official" style="font-size: 48px; color: mediumblue"></i>
+    <i class="fa fa-google-plus-square" style="font-size: 48px; color: white"></i>
+    <i class="fa fa-tripadvisor" style="font-size: 48px; color: green"></i>
+    <div id="pseudo2"></div>
+  </div>
+</footer>
 </html>

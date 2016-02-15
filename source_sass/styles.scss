@@ -5,55 +5,313 @@
 @import "mixins";
 @import "base";
 
-.header {
-  width: 100%;
-  height: 40px;
-  background-color: #888888;
-  position: fixed;
-  overflow: hidden;
-  vertical-align: top;
+@mixin height-header($height) {
+  height: $height;
+}
+@keyframes titleColorChange {
+  from {
+    color: red;
+  }
+  to {
+    colof: yellow;
+  }
+}
+@keyframes flipChange {
+  from {
+    color: red;
+  }
+  to {
+    colof: yellow;
+    transform: scale(1.5, 1.5);
+  }
 }
 
+body {
+  height: 100%;
+}
+
+#title {
+  float:left;
+  height: 100%;
+  position: relative;
+  width: 30%;
+  p {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: fantasy;
+    font-size: 30px;
+    color: darkorange;
+    animation-name: titleColorChange;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+
+}
+.header {
+  @include height-header($header-height);
+  vertical-align: top;
+  //height: $header-height;
+  width: 100%;
+}
+body {
+  background-color: papayawhip;
+  background-image: url('mian_background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-position-y: $header-height;
+  background-size: 600px 400px;
+}
 .navbar {
   width: 100%;
-  top: 40px;
-  height: 80px;
+  @include height-header($header-height);
   position: fixed;
-  background-color: #0b97c4;
-  //--webkit-transition: all 0.3s ease;
+  background-color: darkred;
   transition: all 0.4s ease;
-  display: inline-block
+  z-index: 2;
+  .icons {
+    display:table;
+    float:right;
+    height: 100%;
+    width: 40%;
+    .top-icon {
+      font-family: fantasy;
+      color: white;
+      outline: none;
+      font-size: 20px;
+      padding: 5px 20px;
+      text-align: center;
+      vertical-align:middle;
+      text-decoration: none;
+      display: table-cell;
+      transition: all 0.5s ease;
+    }
+  }
 }
+.hlt_icon {
+  background-color: black !important;
+}
+.shrink {
+  @include height-header($header-height * 0.7)
 
-.icons {
-  display:table;
-  float:right;
-  height: 100%;
-  width: 40%;
-  //position:relative;
-}
-.navbar.shrink {
-  top: 0%;
-  height:50px !important
+  //height: 0.7 * $header-height !important
 };
-
-.top-icon {
-  //background-color: yellow;
-  font-size: 20px;
-  //position: absolute;
-  padding: 10px 20px;
-  text-align: center;
-  //top: 50%;
-  //transform: translateY(-50%);
-  vertical-align:middle;
-  text-decoration: none;
-  display: table-cell;
+.opacity {
+  opacity: 0.5 !important
+};
+.content {
+  //padding-top: $header-height;
+  width: 100%;
+  #video-block {
+    //margin-top:0;
+    background-color: papayawhip;
+    //height: 500px;
+    .video {
+      display: block;
+      margin: 0 auto;
+      border: 5px solid darkred;
+      border-style: ridge;
+      //margin:0 auto;
+    }
+  }
+  #icon1-scroll {
+    width:100%;
+    height: 700px;
+    background-color: papayawhip;
+    #intro-block {
+      width: 70%;
+      height: 90%;
+      margin: 0 auto;
+      background-color: papayawhip;
+      #intro-level1, #intro-level2, #intro-level3{
+        width: 100%;
+        magin: 100px;
+        position: relative;
+        display:table;
+        div {
+          display: table-cell;
+          width:25%;
+          text-align: center;
+          padding: 30px 30px;
+          vertical-align: middle;
+          h1 {
+            font-family: fantasy;
+            animation-name: flipChange;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+          }
+          img {
+            //position: fixed;
+            width:180px;
+          }
+        }
+      }
+    }
+  }
 }
+
+.modal {
+  width:100%;
+  height:100%;
+  overflow:auto;
+  display: none;
+  position: fixed;
+  z-index: 3;
+  left:0;
+  top:0;
+  background-color: rgba(0,0,0,0.2);
+  #mod-content {
+    //position: relative;
+    margin: 5% auto;
+    width: 100%;
+    #close {
+      color: black;
+      right: 20%;
+      top: 20%;
+      position: fixed;
+      font-size: 35px;
+      //font-weight: bold;
+      font-family: Arial Black;
+    }
+    img {
+      display:block;
+      margin:0 auto;
+      width: 50%;
+      }
+    }
+ }
 .row {
-  offset-before: 50px;
-  height: 1000px;
-  background-color: orange;
+  height: 300px;
 }
 
+#carousel {
+  width:100%;
+  height:100%;
+  margin:0 auto;
+  overflow:hidden;
+  #slides {
+    overflow:hidden;
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    width: $slides-width;
+    height: $slides-height;
+    border:10px solid burlywood;
+    border-style: ridge;
+    #prev {
+      position: absolute;
+      left: 0;
+      top:50%;
+      margin-top:-20px;
+      z-index:1;
+    }
+    #next {
+      position: absolute;
+      right: 0;
+      top:50%;
+      margin-top:-20px;
+      z-index:1;
+    }
+    ul {
+      position:relative;
+      left:0;
+      top:0;
+      list-style:none;
+      margin:0;
+      padding:0;
+      width: $num-slides*$slides-width;
+      li {
+        width: $slides-width;
+        height: $slides-height;
+        float:left;
+        img {
+          width: $slides-width;
+          height: $slides-height;
+        }
+      }
+    }
+  }
+}
 
+#icon3-scroll {
+  width: 70%;
+  overflow: auto;
+  //background-color: red;
+  //opacity: 0.6;
+  margin: 0 auto;
+  height: 500px;
+  h1 {
+    text-align: center;
+    font-family: fantasy;
+    color: darkred;
+  }
+  div {
+    width: 100%;
+  }
+  div div {
+    float:left;
+    width: 33%;
+    margin-top: 40px;
+    //background-color: green;
+  }
+  .subTitle {
+    width: 100%;
+    text-align: center;
+    font-family: fantasy;
+    font-size: 20px;
+    color: black;
+  }
+  .context {
+    //overflow: hidden;
+    width: 95%;
+    line-height: 150%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 18px;
+    font-family: Times;
+    color: black;
 
+  }
+}
+/* Styling for prev and next buttons */
+#buttons {
+  padding:0 0 5px 0;
+  float:right;
+}
+
+#buttons a {
+  display:block;
+  width:31px;
+  height:32px;
+  text-indent:-999em;
+  float:left;
+  outline:0;
+}
+
+footer {
+  //margin-bottom: 0;
+  //text-align: left;
+  height: $icon-width + $icon-padding * 2;
+  background-color: darkred;
+  width: 100%;
+
+  div {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    #pseudo1, #pseudo2 {
+      height: 100%;
+      width: 10px;
+      //background-color: green;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    i {
+        margin-left: 10px;
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+  }
+}
